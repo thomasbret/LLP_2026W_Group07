@@ -1,7 +1,9 @@
 #ifndef MY_ALLOC_H
 #define MY_ALLOC_H
 
+
 #include <stddef.h>
+
 
 /* Result of my_free(). */
 typedef enum {
@@ -10,6 +12,7 @@ typedef enum {
     MY_FREE_INVALID,  /* ptr is not a payload start in the heap, no-op */
     MY_FREE_DOUBLE    /* block was already free, no-op */
 } my_free_status;
+
 
 /* Resets the heap to one free block of HEAP_SIZE - HEADER_SIZE bytes.
  * Call before using the allocator. Discards all current allocations. */
@@ -31,5 +34,6 @@ void heap_print(void);
 /* Walks the heap and verifies all invariants. Returns 0 if OK, nonzero
  * otherwise (see heap_check_result in internal.h for the codes). */
 int heap_check(void);
+
 
 #endif /* MY_ALLOC_H */
